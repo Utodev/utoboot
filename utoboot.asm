@@ -24,11 +24,7 @@ Start       ; --- Place the stack at a proper place and change to IM1
             DI
             LD SP, LOAD_ADDRESS
 
-            ; --- Set default disk    
-            XOR A
-            RST $08
-            DB M_GETSETDRV
-            JR C, Error
+            
 
             ; Clears the RAM by setting all values from $4000 to $FFFF to 0
 ClearRAM    XOR A
@@ -71,11 +67,16 @@ Error       DI
 ;               IX: Load Address 
 ;               DE: Bytes to load, if file is shorter, it will be loaded anyway
 ; Output        Carry flag set of error. HL, DE, BC, IX, A and F are modified
-LoadFile    LD B, FA_READ   
+LoadFile    XOR A
+            RST $08
+            DB M_GETSETDRV
+            RET C
+            
+            LD B, FA_READ   
             RST $08
             DB F_OPEN      ;Open file
             RET C
-      ; --- Load AUTOEXEC.BIN
+
             LD (fileHandle),A
             PUSH IX
             POP HL
@@ -84,7 +85,7 @@ LoadFile    LD B, FA_READ
             RST $08
             DB F_READ      ; read file
             RET C
-      ; --- Close file      
+
             LD A,(fileHandle)
             RST $08
             DB F_CLOSE     ; close file
