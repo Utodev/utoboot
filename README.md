@@ -62,4 +62,11 @@ for your game.
 pause there so the loading screen is visible, and then continue with your game. If you want to do that, you can use the LoadFile function in the
 source code, whose parameters are clearly defined there.
 
+## DAAD Ready Loader
 
+DAAD is a text adventure engine made by Infinite Imaginations, AKA Tim Gilberts, AKA Gilsoft, for the Spanish company Aventuras AD. DAAD has a 
+ZX Spectrum interpreter, and DAAD Ready is a package to make adventures with DAAD, which includes ESXDOS targets (for normal Spectrum and also
+for ZX-Uno, which uses graphics in Timex HiRes mode).
+
+daadloader.asm contains a loader that has been implemented in DAAD Ready 3.0, so games can have autoboot. DAAD Ready contains everything that is
+needed, but source code is better hosted in this project.
