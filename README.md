@@ -11,7 +11,7 @@ card which would work on every DivMMC/IDE, as the developer doesn't know which v
 In latest versions of ESXDOS, the autoboot feature was implemented, and AUTOXEC.BAS can run any game in the SD card, but again, not if 
 you don't know the ESXDOS version of the user.
 
-## So what we found?
+## What we found?
 
 After some testing, based in a first try by @mcleod_ideafix, and with a lot of help from Andrew Owen and Antonio Villena, I managed to find
 the BETADISK.SYS file is executed when loaded. Thus, you can make any code run at that point, for instace to load some other file (the game)
@@ -26,7 +26,7 @@ In latest versions 0.8.7 and 0.8.8, we found the core itself was calling some of
 believe it is the built in autoboot feature. To avoid that, we finally replaced ESXDOS.SYS, with a 4K file plenty of RETs, which, in case of
 the core calling function, just return. This works for latest versions and we hope it works with future versions too.
 
-## So how i works
+## So how it works?
 
 At the moment, there you only need to include in a SD card the content of the SYS folder in this project (ESXDOS.SYS and BETADISK.SYS), together
 with a AUTOEXEC.BIN file that you should place in the root folder of the SD card. That AUTOEXEC.BIN should be a binary loaded at 8000h, and 
@@ -51,7 +51,6 @@ define      START_ADDRESS     32768 ; Start address to run the game
 
 Just change load address, file size and start address and recompile utoboot.asm using sjasmplus, and you will have a new BETADISk.SYS file ready
 for your game.
-
 
 ## Notes
 
