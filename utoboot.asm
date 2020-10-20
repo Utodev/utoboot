@@ -44,16 +44,18 @@ LoadCode    LD IX, LOAD_ADDRESS
             CALL LoadFile        
             JR C, Error
 
-            ; This code just makes sure the stack is clean, cause every CALL to LoadFile is storing a value in the stack different than zero
+            ; --- This code just makes sure the stack is clean, cause every CALL to LoadFile is storing a value in the stack different than zero
             LD HL, 0
             PUSH HL
             POP HL
+
+            ; --- Set some important values
+            LD IY, $5C3A  ; IY points to systema variable ERR-NR, as expected by some programs that relay on system variables
+
             ; --- Jump to entry address for the game, but passing trough 1FFAh so ESXDOS ROM is paged out (and back to normal Spectrum ROM)
             LD HL, START_ADDRESS
-            JP 1FFBh
+            JP 1FFBh   ; --- there is a JP (HL) at 1FFBh
  
-
-      
 
 ; ---------------------- FUNCTIONS -------------------------------------------
 
