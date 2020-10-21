@@ -83,6 +83,15 @@ dot command, so use HL for the parameters instead of IX.
 (especially loading is great so you can make mulyiple areas with different sprites, loading beatiful background images, etc., but also saving
 is great to save game progress). Other functions may not work.
 
+## AGD Loader
+
+MPAGD (Multi Plataform AGD) IDE can use the Export feature to obtain a binary file for your game, just make sure you create the TAP file, and the go to 
+"Suite ZX\SjasmPlus" folder in the AGD directory and you will find the same file but with BIN extension. Put that file in the root folder of your SD
+card, rename it to AUTOBOOT.AGD, and put ESXDOS.SYS and AGDBETADISK.SYS en your SYS folder. Finaly, rename AGDBETADISK.SYS as BETADISK.SYS.
+
+If you have a game made with AGD 4.0 or above, MPAGD can also import it and then export it. If it importing TAP file doesn't work, try making a 
+snapshot with an emulator and try to import SNA.
+
 ## DAAD Ready Loader
 
 DAAD is a text adventure engine made by Infinite Imaginations, AKA Gilsoft, AKA Tim Gilberts,  for the Spanish company Aventuras AD. DAAD has a 
@@ -90,4 +99,4 @@ ZX Spectrum interpreter, and DAAD Ready is a package to make adventures with DAA
 for ZX-Uno, which uses graphics in Timex HiRes mode).
 
 daadloader.asm contains a loader that has been implemented in DAAD Ready 3.0, so games can have autoboot. DAAD Ready contains everything that is
-needed, but source code is better hosted in this project.
+needed, but source code is better hosted in this project. DAAD loader will be included by default in DAAD Ready.
