@@ -41,7 +41,7 @@ things like initializae system variables, UDGs, etc.
 Also, have in mind that when your game starts, the stack it's at 8000h, so first value stacked will go to $7FFF and $7FFE
 
 If you use the AUTOEXEC.BIN file included in this project, together with the SYS folder, you will have a SD card with an autoexecutable copy of 
-Manic Miner.
+Manic Miner. Thanks to Matthew Smith for creating this great game.
 
 ## What if my game does not start at 8000h
 
@@ -91,6 +91,8 @@ card, rename it to AUTOBOOT.AGD, and put ESXDOS.SYS and AGDBETADISK.SYS en your 
 
 If you have a game made with AGD 4.0 or above, MPAGD can also import it and then export it. If it importing TAP file doesn't work, try making a 
 snapshot with an emulator and try to import SNA.
+
+You have a sample game (Hero'es rescue) by Defecto Digital in the repository, so you can check. Thanks Javymetal for letting me use it as sample.
 
 ## DAAD Ready Loader
 
