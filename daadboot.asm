@@ -62,9 +62,9 @@ ClearRAM    XOR A
             ; --- Load CHR, which is loaded over the SDG file, at the point where the charset is for ZX Spectrum
             LD IX, $F7E4
             LD HL, CHRFile
-            LD DE, 2048            ; In excess, just to be sure it is full loaded
+            LD DE, 2048             ; In excess, just to be sure it is full loaded
             CALL LoadFile        
-            JR C, Error
+            OR A                    ; CHR file may be absent, ignore if it fails and clear carry flag
 
             ; -- This code just makes sure the stack is clean, cause every CALL to LoadFile is storing a value in the stack different than zero
             LD HL, 0
